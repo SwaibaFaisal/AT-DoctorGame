@@ -6,11 +6,13 @@ public class Clickable : MonoBehaviour
 {
     SpriteRenderer m_spriteRenderer;
     bool m_selected = false;
+    Color m_initialColor;
 
     // Start is called before the first frame update
     void Awake()
     {
         m_spriteRenderer = this.GetComponent<SpriteRenderer>();
+        m_initialColor = m_spriteRenderer.color;
     }
 
     // Update is called once per frame
@@ -29,7 +31,7 @@ public class Clickable : MonoBehaviour
         }
         else
         {
-            m_spriteRenderer.color = Color.white;
+            m_spriteRenderer.color = m_initialColor;
         }
 
        
