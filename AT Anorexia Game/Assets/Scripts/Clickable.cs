@@ -31,7 +31,8 @@ public class Clickable : MonoBehaviour
         {
             m_spriteRenderer.color = Color.white;
         }
-        print("onclicked");
+
+        ScoreManager.Instance.AddScore(2);
     }
 
     public void HoverStart()

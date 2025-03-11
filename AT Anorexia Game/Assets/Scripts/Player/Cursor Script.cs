@@ -37,10 +37,6 @@ public class CursorScript : MonoBehaviour
         {
             m_hoveredItemScript = null;
         }
-
-        
-
-        
       
     }
 
