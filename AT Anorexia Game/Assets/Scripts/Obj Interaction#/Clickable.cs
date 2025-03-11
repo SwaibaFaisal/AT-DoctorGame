@@ -8,7 +8,7 @@ public class Clickable : MonoBehaviour
     bool m_selected = false;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         m_spriteRenderer = this.GetComponent<SpriteRenderer>();
     }
@@ -19,7 +19,7 @@ public class Clickable : MonoBehaviour
         
     }
 
-    public void OnClicked()
+    public virtual void OnClicked()
     {
         m_selected = !m_selected; 
 
@@ -32,7 +32,7 @@ public class Clickable : MonoBehaviour
             m_spriteRenderer.color = Color.white;
         }
 
-        ScoreManager.Instance.AddScore(2);
+       
     }
 
     public void HoverStart()
