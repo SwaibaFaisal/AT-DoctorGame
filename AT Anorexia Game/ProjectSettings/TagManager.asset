@@ -53,3 +53,6 @@ TagManager:
   - name: Super Foreground
     uniqueID: 748771661
     locked: 0
+  - name: Text
+    uniqueID: 151992263
+    locked: 0

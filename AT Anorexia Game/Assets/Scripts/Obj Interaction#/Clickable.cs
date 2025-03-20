@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Clickable : MonoBehaviour
+public class Clickable : SceneObject
 {
     SpriteRenderer m_spriteRenderer;
-    bool m_selected = false;
+    protected bool m_selected = false;
     Color m_initialColor;
+    [SerializeField] protected Sprite m_selectedSprite;
+    Sprite m_unSelectedSprite;
 
     // Start is called before the first frame update
-    void Awake()
+    public override void Awake()
     {
-        m_spriteRenderer = this.GetComponent<SpriteRenderer>();
-        m_initialColor = m_spriteRenderer.color;
+       m_spriteRenderer = this.GetComponent<SpriteRenderer>();
+       m_unSelectedSprite = m_spriteRenderer.sprite;
+       base.Awake();
     }
 
     // Update is called once per frame
@@ -27,11 +30,11 @@ public class Clickable : MonoBehaviour
 
         if(m_selected)
         {
-            m_spriteRenderer.color = Color.red;
+            m_spriteRenderer.sprite = m_selectedSprite;
         }
         else
         {
-            m_spriteRenderer.color = m_initialColor;
+            m_spriteRenderer.sprite = m_unSelectedSprite;
         }
 
        
