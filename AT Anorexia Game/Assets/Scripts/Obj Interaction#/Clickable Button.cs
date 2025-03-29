@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class ClickableButton : Clickable
 {
 
-    [SerializeField] UnityEvent m_testEvent;
+    [SerializeField] UnityEvent m_event;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +22,7 @@ public class ClickableButton : Clickable
     public override void OnClicked()
     {
         base.OnClicked();
-        m_testEvent.Invoke();
+        m_event.Invoke();
 
     }
 }
