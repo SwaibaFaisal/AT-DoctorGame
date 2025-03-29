@@ -7,12 +7,16 @@ using UnityEngine;
 
 public class PatientObject : ScriptableObject
 {
+    [Header("Basic Info")]
+
+
     [Header("Dialogue Variables")]
     [SerializeField][TextArea] List<string> m_questionText;
     [SerializeField][TextArea] List<string> m_answerText;
 
 
-    [Header("Food Diary Variables")]
-    [SerializeField] float m_Test;
 
+
+    public List<string> QuestionText { get { return m_questionText; } }
+    public List<string> AnswerText { get { return m_answerText; } }
 }
