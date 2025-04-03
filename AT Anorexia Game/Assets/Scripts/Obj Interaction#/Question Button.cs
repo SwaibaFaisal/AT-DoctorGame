@@ -6,7 +6,6 @@ using UnityEngine;
 public class QuestionButton : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI m_currentQuestionText;
-    [SerializeField] TextMeshProUGUI m_currentAnswerText;
     int m_index;
     DialogueBox m_parentScript;
 
@@ -23,14 +22,9 @@ public class QuestionButton : MonoBehaviour
         m_currentQuestionText.text = _text;
     }
 
-    public void SetAnswerText(string _text)
-    {
-        m_currentAnswerText.text = _text;
-    }
-
     public void OnClicked()
     {
-
+        m_parentScript.QuestionButtonClicked(m_index);
     }
 
     public int Index { get { return m_index; } set { m_index = value; } }

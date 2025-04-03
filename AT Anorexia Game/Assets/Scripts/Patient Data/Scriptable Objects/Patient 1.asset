@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Patient 1
   m_EditorClassIdentifier: 
   m_questionText:
-  - 'Test Question '
+  - What is your name?
+  - 'Question 2 '
   m_answerText:
-  - Test Answer
+  - Hello my name is Swaiba :D
+  - Answer 2

@@ -11,21 +11,27 @@ public class DialogueBox : MonoBehaviour
     [SerializeField] List<string> m_currentAnswerStrings;
     [SerializeField] TextMeshProUGUI m_currentAnswerText;
     [SerializeField] GameObject m_buttonsParent;
+    [SerializeField] GameObject m_answerParent;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartSequence()
     {
-        
-    }
 
-    public void SetLists()
+        SetButtons();
+        SetButtonsActive(true);
+
+    }
+   
+    public void SetLists(List<string> _questions, List<string> _answers)
     {
-        
+        m_currentQuestionStrings.Clear();
+        m_currentAnswerStrings.Clear();
+        m_currentQuestionStrings = _questions;
+        m_currentAnswerStrings = _answers;
     }
 
     public void SetButtons()
@@ -35,7 +41,8 @@ public class DialogueBox : MonoBehaviour
             if (m_questionButtons[i].GetComponent<QuestionButton>() != null)
             {
                 QuestionButton m_script = m_questionButtons[i].GetComponent<QuestionButton>();
-                m_script.Index = i;     
+                m_script.Index = i;
+                m_script.SetQuestionText(m_currentQuestionStrings[i]);
             }
          
         }
@@ -44,6 +51,7 @@ public class DialogueBox : MonoBehaviour
     public void SetButtonsActive(bool _active)
     {
         m_buttonsParent.SetActive(_active);
+        m_answerParent.SetActive(!_active);
     }
 
     public void DisplayAnswerText(string _text)
@@ -54,11 +62,13 @@ public class DialogueBox : MonoBehaviour
     public void QuestionButtonClicked(int _index)
     {
         SetButtonsActive(false);
+        m_currentAnswerText.text = m_currentAnswerStrings[_index];
     }
 
     public void BackToQuestions()
     {
-
+        m_currentAnswerText.text = " ";
+        SetButtonsActive(true);
     }
 
 }
