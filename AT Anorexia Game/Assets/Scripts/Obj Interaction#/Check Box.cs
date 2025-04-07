@@ -5,6 +5,7 @@ using UnityEngine;
 public class CheckBox : Clickable
 {
     [SerializeField] bool m_correctAnswer;
+    [SerializeField] bool m_isChecked;
     // Start is called before the first frame update
     void Start()
     {

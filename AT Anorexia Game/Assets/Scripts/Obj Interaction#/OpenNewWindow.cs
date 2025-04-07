@@ -5,7 +5,7 @@ using UnityEngine;
 public class OpenNewWindow : Clickable
 {
     [SerializeField] GameObject m_window;
-    
+    [SerializeField] bool m_toggle;
 
 
     void Start()
@@ -14,23 +14,31 @@ public class OpenNewWindow : Clickable
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
-        
+     
+
+       m_selected = m_window.activeSelf;
+       base.Update();
     }
 
     public override void OnClicked()
     {
-        base.OnClicked();
 
-        if(Selected)
+        if(!m_toggle)
         {
-            m_window.SetActive(true);
+            if(!m_selected)
+            {
+                base.OnClicked();
+                m_window.SetActive(!m_window.activeSelf);
+            }
         }
         else
         {
-            m_window.SetActive(false);
+            base.OnClicked();
+            m_window.SetActive(!m_window.activeSelf);
         }
 
+        
     }
 }

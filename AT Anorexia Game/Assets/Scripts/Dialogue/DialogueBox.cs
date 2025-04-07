@@ -71,4 +71,10 @@ public class DialogueBox : MonoBehaviour
         SetButtonsActive(true);
     }
 
+
+    public void ExitButtonPressed()
+    {
+        BackToQuestions();
+        this.gameObject.SetActive(false);
+    }
 }

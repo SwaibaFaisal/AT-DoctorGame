@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Clickable : SceneObject
 {
-    SpriteRenderer m_spriteRenderer;
+    protected SpriteRenderer m_spriteRenderer;
     protected bool m_selected = false;
     Color m_initialColor;
     [SerializeField] protected Sprite m_selectedSprite;
-    Sprite m_unSelectedSprite;
+    protected Sprite m_unSelectedSprite;
 
     // Start is called before the first frame update
     public override void Awake()
@@ -19,16 +19,9 @@ public class Clickable : SceneObject
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
-        
-    }
-
-    public virtual void OnClicked()
-    {
-        m_selected = !m_selected; 
-
-        if(m_selected)
+        if (m_selected)
         {
             m_spriteRenderer.sprite = m_selectedSprite;
         }
@@ -36,8 +29,11 @@ public class Clickable : SceneObject
         {
             m_spriteRenderer.sprite = m_unSelectedSprite;
         }
+    }
 
-       
+    public virtual void OnClicked()
+    {
+        m_selected = !m_selected; 
     }
 
     public void HoverStart()
