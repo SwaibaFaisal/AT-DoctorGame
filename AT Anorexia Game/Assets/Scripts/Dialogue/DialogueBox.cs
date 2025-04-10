@@ -21,7 +21,7 @@ public class DialogueBox : MonoBehaviour
     public void StartSequence()
     {
 
-        SetButtons();
+        SetQuestionButtonData();
         SetButtonsActive(true);
 
     }
@@ -34,7 +34,7 @@ public class DialogueBox : MonoBehaviour
         m_currentAnswerStrings = _answers;
     }
 
-    public void SetButtons()
+    public void SetQuestionButtonData()
     {
         for(int i = 0; i < m_questionButtons.Count; i++)
         {
@@ -70,7 +70,6 @@ public class DialogueBox : MonoBehaviour
         m_currentAnswerText.text = " ";
         SetButtonsActive(true);
     }
-
 
     public void ExitButtonPressed()
     {
